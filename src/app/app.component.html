@@ -1,14 +1,16 @@
-<main class="m-0 min-w-full" role="main">
+<main class="m-0 min-w-full bg-gray-900 text-white min-h-[100vh] h-full" role="main">
 <!-- Header -->
- <header>
-  <h1 class="text-bold text-2xl p-2 fixed bg-gray-800 w-full top-0 left-0 right-0 text-white">
-    Your movies
-  </h1>
+ <header class="bg-gray-900 fixed w-full top-0 left-0 right-0 text-white">
+  <nav class="mx-auto max-w-5xl w-full">
+  <h1 class="text-bold text-2xl p-4">
+    Your best movies
+  </h1></nav>
  </header>
-
+<!-- Buscador -->
 <!-- Main content -->
- <div class="mt-12">
-<router-outlet></router-outlet>
+<div class="mt-16 mb-16 mx-auto max-w-5xl">
+  <app-buscador></app-buscador>
+  <router-outlet></router-outlet>
 </div>
 <!-- Footer -->
 <footer>

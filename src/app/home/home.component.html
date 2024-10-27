@@ -1,6 +1,8 @@
-<div class="max-w-5xl">
-    <div *ngFor="let movie of movies">
-        <li>{{movie.title}}</li>
+<div class="max-w-5xl flex gap-8 flex-wrap justify-between py-12">
+    <div class="grid gap-2 shadow-md p-4 rounded-md w-full max-w-xs content-start" *ngFor="let movie of movies">
+        <img [src]="'https://image.tmdb.org/t/p/w300'+movie.poster_path" alt="movie.title" class="w-full h-64 rounded-md object-contain">    
+        <p class="font-semibold">{{movie.title}}</p>
+        <p class="max-w-full min-h-[160px]">{{movie.overview.slice(0, 200)+ (movie.overview.length>200 ? "..." : "")}}</p>
     </div>
 
 </div>
