@@ -29,7 +29,6 @@ export class SearchComponent implements OnInit {
     this.http.get(this.configUrl + '/' + movie).subscribe((data) => {
       let response = data as Movies;
       this.movies = response.results;
-      console.log(response);
     });
   }
 

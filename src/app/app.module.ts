@@ -10,6 +10,8 @@ import { BuscadorComponent } from './buscador/buscador.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { SearchComponent } from './search/search.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { LoginComponent } from './login/login.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     BuscadorComponent,
     CarrouselComponent,
     SearchComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    LoginComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
