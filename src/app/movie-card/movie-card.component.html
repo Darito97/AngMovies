@@ -7,4 +7,5 @@
     <p class="max-w-full h-44">{{movie.overview.slice(0, 200)+ (movie.overview.length>200 ? "..." : "")}}</p>
     
 </div>
-<button class="rounded-md shadow-sm bg-red-400 w-full mt-4 py-2 col-start-1 col-end-6">Agregar a favoritos</button>
+<button (click)="toggleFav()" *ngIf="!fav" [id]="'btn-'+movie.id" class="rounded-md shadow-sm bg-red-400 w-full mt-4 py-2 col-start-1 col-end-6">Agregar a favoritos</button>
+<button (click)="toggleFav()" *ngIf="fav" [id]="'btn-'+movie.id" class="rounded-md shadow-sm bg-gray-900 w-full mt-4 py-2 col-start-1 col-end-6">Favoritas</button>
