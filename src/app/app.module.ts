@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { SearchComponent } from './search/search.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchComponent } from './search/search.component';
     HomeComponent,
     BuscadorComponent,
     CarrouselComponent,
-    SearchComponent
+    SearchComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
