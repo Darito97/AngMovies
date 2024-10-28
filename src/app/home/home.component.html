@@ -1,6 +1,6 @@
-<div class="max-w-5xl flex gap-8 flex-wrap justify-between py-12">
-    <div class="grid gap-2 shadow-md p-4 rounded-md w-full max-w-xs content-start" *ngFor="let movie of movies">
-        <app-movie-card [movie]="movie"></app-movie-card>
+<div class="w-full md:px-10 flex gap-8 flex-wrap justify-center py-12">
+    <div *ngFor="let movie of movies">
+        <app-movie-card class="grid gap-4 md:grid-cols-5 p-4 w-full max-w-xs md:max-w-sm xl:max-w-md content-start" [movie]="movie"></app-movie-card>
     </div>
-
 </div>
+<button *ngIf="showButton" (click)="onScrollTop()" class="bg-white text-black rounded-full fixed w-16 h-16 right-8 bottom-8">Subir</button>

@@ -39,8 +39,10 @@ export class LoginComponent implements OnInit {
       const userButtonDiv = document.getElementById('user-button')
 
       Clerk.mountUserButton(userButtonDiv)
-      
+      localStorage.setItem('user', Clerk.user.id)
+      console.log(Clerk.user.id)
     } else {
+      localStorage.removeItem('user')
       document.getElementById('formSing').innerHTML = \`
         <div id="sign-in"></div>
       \`

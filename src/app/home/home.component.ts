@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Movies, Movie } from './Movies';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,10 @@ import { Movies, Movie } from './Movies';
 export class HomeComponent implements OnInit {
   configUrl = 'http://localhost:3000/movies/1';  
   movies: Array<Movie> = [];
+  page: number = 1;
+  showButton: boolean = false;
 
-  constructor(private http: HttpClient) { 
+  constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient) { 
     this.getMovies();
   }
 
@@ -25,4 +28,32 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(): void {
+    const yOffSet = window.pageYOffset;
+    const scrollTop = document.documentElement.scrollTop;
+    const element = document.documentElement.scrollHeight;
+    if ((yOffSet + scrollTop) > element) {
+      this.onScrollDown();
+    }
+    if(yOffSet > 60){
+      this.showButton = true;
+    }else{
+      this.showButton = false;
+    }
+  }
+
+  onScrollDown(): void {
+    this.page++;
+    this.configUrl = 'http://localhost:3000/movies/' + this.page;
+    if(this.page <= 500){
+    this.http.get(this.configUrl).subscribe((data) => {
+      let response = data as Movies;
+      this.movies = this.movies.concat(response.results);
+    });
+  }
+  }
+  onScrollTop(): void {
+    this.document.documentElement.scrollTop = 0;
+  }
 }

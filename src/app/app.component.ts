@@ -29,7 +29,11 @@ export class AppComponent implements OnInit {
       const userButtonDiv = document.getElementById('user-button')
 
       Clerk.mountUserButton(userButtonDiv)
+      localStorage.setItem('user', Clerk.user.id)
+      console.log(Clerk.user.id)
       
+    }else{
+      localStorage.removeItem('user')
     }
   })
     `

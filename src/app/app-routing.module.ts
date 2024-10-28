@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [{
   path: '', component: HomeComponent
@@ -14,7 +15,7 @@ const routes: Routes = [{
 }, {
   path: 'login', component: LoginComponent
 }, {
-  path: 'favorites', component: FavoritesComponent
+  path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard]
 }];
 
 @NgModule({
