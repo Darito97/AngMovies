@@ -2,6 +2,11 @@
 
 Esta es una página similar a Netflix con el catalogo de peliculas de TMDB.
 
+### Como comenzar
+Para comenzar solo es necesario descargar el proyecto e ingresar el siguiente comando para la instalación de dependencias `npm install`.
+
+Cuando finalice este proceso puedes ejecutar el comando `npm start` para inicializar y compilar el proyecto de angular.
+
 
 ###### Dependencias:
 Las dependencias utilizadas son las siguientes:
