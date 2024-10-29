@@ -12,6 +12,7 @@ export class FavoritesComponent implements OnInit {
 
   favs = Array<Movie>();
   configUrl = environment.urlConfig+'/favs';
+  waiting = true;
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,7 @@ export class FavoritesComponent implements OnInit {
     if(sesion){
       this.http.post(this.configUrl+"/getUserFavs", {user: sesion}).subscribe((data: any)=>{
         this.favs = data
+        this.waiting = false;
         return data;
       });
     }
