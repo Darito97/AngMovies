@@ -51,11 +51,16 @@ export class HomeComponent implements OnInit {
       if(this.page <= 500){
         this.http.get(this.configUrl).subscribe((data) => {
           let response = data as Movies;
+          if(response.results.length === 0){
+
+          }else{
           this.movies = this.movies.concat(response.results);
+        }
         });                              
       }
     }
   }
+
   onScrollTop(): void {
     this.document.documentElement.scrollTop = 0;
   }

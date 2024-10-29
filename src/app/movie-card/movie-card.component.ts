@@ -8,12 +8,14 @@ import { FavoritesService } from '../favorites.service';
 })
 export class MovieCardComponent implements OnInit {
 @Input() movie: any;
+  overview = false;
   fav = false;
   constructor(private FavService: FavoritesService) {
   }
 
   ngOnInit(): void {
     this.checkFav();
+    this.overview = this.checkDescription();
   }
 
   toggleFav(){
@@ -27,5 +29,14 @@ export class MovieCardComponent implements OnInit {
 
   checkFav(){
     this.fav = this.FavService.isFav(this.movie.id);
+  }
+  checkDescription(){
+    let description = this.movie.overview;
+    if(description && description.length > 0){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }
