@@ -1,27 +1,43 @@
 # Movies
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+Esta es una página similar a Netflix con el catalogo de peliculas de TMDB.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+###### Dependencias:
+Las dependencias utilizadas son las siguientes:
+- @angular/animations: Librería usada para agregar animaciones.
+- ngx-toastr: Librería usada para agregar notificaciones en tiempo real.
+  
+Todas las demás dependencias encontradas en el package.json son del proyecto inicial de angular.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Sobre el proyecto
+En la estructura del proyecto encontraremos primero en la carpeta src el `app.component.html` el cual gestiona el proyecto y sirve como plantilla principal.
+Dentro de el encontramos el header y el footer así como otros elementos que sirven para gestionar las vistas.
 
-## Build
+Despues podemos visualizar algunos componentes:
+- **buscador**: se encarga de mostrar un formulario reactivo que permite realizar busquedas de peliculas
+- **details-movie**: nos muestra en una pantalla completa la pelicula que estemos visitando.
+- **favorites**: Se encarga de mostrar la lista de favoritos que tenemos guardada en nuestro usuario. Es una ruta protegida.
+- **home**: Es la vista principal al comenzar a renderizar nuestra aplicación que permite visualizar nuestras peliculas listadas en un layout de carga infinita por scroll.
+- **login**: Nos permite ingresar y es la ruta que inyecta el script para utilizar nuestro servicio de clerk
+- **movie-card**: Es un componente creado para reutilizar en todo el proyecto. Muestra de una forma sencilla pero agradable una de las peliculas.
+- **search**: Es la página encargada de mostrar los resultados de las busquedas que tenemos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Tambien es importante destacar que utilizamos modulos como HttpClient para el manejo de las peticiones al servidor y un guard para la protección de nuestra ruta llamado: `auth.guard`.
 
-## Running unit tests
+Sobre los servicios que manejamos en angular son:
+- **favorites**: se encarga de gestionar los favoritos, agregarlos a un estado temporal y conectarlos con el servidor para su guardado.
+- **session**: Gestiona la sesión activa.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Rutas
+Las rutas de nuestro proyecto son las siguientes:
+- **/** => Nuestra ruta principal
+- **search/:query** => muestra los resultados de nuestra busqueda
+- **login** => Muestra la pantalla de login
+- **favorites** => Es una pestaña protegida y nos muestra nuestros favoritos
+- **details/:id** => muestra los detalles de una pelicula especifica 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Variables de entorno
+Solamente tenemos una variable de entorno llamada `urlConfig` la cual se encarga de entregar la URL para las peticiones al servidor.
