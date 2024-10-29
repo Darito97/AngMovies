@@ -1,5 +1,5 @@
 <style>
-    #bgImage {
+    .bgImage {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -17,7 +17,7 @@
     }
 </style>
 <div [class]="'w-full mt-16 containerCarrousel '+hide">
-    <div id="bgImage" [style]="'background-image: url('+urlImage+');'">
+    <div *ngIf="!waiting" [style]="'background-image: url('+urlImage+');'" class="bgImage">
         <div class="w-full h-full bg-gray-800 bg-opacity-80">
             <a [routerLink]="'/details/'+movie.id" class="px-4 max-w-5xl mx-auto py-6 grid gap-2 justify-center content-center h-full">
                 <h1 *ngIf="movie.title" class="text-3xl font-bold">{{movie.title}}</h1>
@@ -27,5 +27,8 @@
                 <p class="text-lg">{{movie.overview}}</p>
             </a>
         </div>
+    </div>
+    <div *ngIf="waiting" class="w-full h-full bg-gray-800 bg-opacity-80 flex justify-center items-center bgImage">
+        <p>Cargando...</p>
     </div>
 </div>

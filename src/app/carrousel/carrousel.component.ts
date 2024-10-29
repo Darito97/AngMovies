@@ -29,7 +29,8 @@ export class CarrouselComponent implements OnInit {
   };
   configUrl = environment.urlConfig+'/movies';
   urlImage = ""
-  hide = "";  
+  hide = "";
+  waiting = true;  
 
   constructor(private http: HttpClient, private router: Router) { 
     this.getMovie();
@@ -44,6 +45,7 @@ export class CarrouselComponent implements OnInit {
       let response = data as Movie;
       this.movie = response;
       this.urlImage = "https://image.tmdb.org/t/p/original" + this.movie.poster_path;
+      this.waiting = false;
     });
   }
   isHide(){

@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   movies: Array<Movie> = [];
   page: number = 1;
   showButton: boolean = false;
+  waiting = true;
 
   constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient) { 
     this.getMovies();
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.http.get(this.configUrl).subscribe((data) => {
       let response = data as Movies;
       this.movies = response.results;
+      this.waiting = false;
     });
   }
 

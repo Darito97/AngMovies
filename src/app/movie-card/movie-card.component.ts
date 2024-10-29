@@ -10,6 +10,7 @@ export class MovieCardComponent implements OnInit {
 @Input() movie: any;
   overview = false;
   fav = false;
+
   constructor(private FavService: FavoritesService) {
   }
 

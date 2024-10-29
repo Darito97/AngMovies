@@ -46,7 +46,6 @@ export class FavoritesService implements OnInit {
   }
 
   getFavs(){
-    console.log('getFavs');
     let sesion = localStorage.getItem('user');
     if(sesion){
       this.http.post(this.urlConfig+"/getUserFavs", {user: sesion}).subscribe((data: any)=>{
