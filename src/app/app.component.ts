@@ -10,9 +10,13 @@ import { FavoritesService } from './favorites.service';
 export class AppComponent implements OnInit {
   title = 'movies';
   route = '';
+  showComplements = true;
 
   constructor(private FavService: FavoritesService, private router: Router) {
     this.route = router.url;
+    if(this.route !== '/' && this.route !== '/search'){
+      this.showComplements = false;
+    }
     FavService.getFavs();
   }
   ngOnInit(): void {

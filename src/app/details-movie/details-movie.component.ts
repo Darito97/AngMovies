@@ -42,12 +42,12 @@ export class DetailsMovieComponent implements OnInit {
 
   getMovieDetails(){
     let id = this.route.snapshot.params.id;
-    this.http.get(this.urlConfig+""+id).subscribe((data) => {
-      console.log(data);
+    this.http.get(this.urlConfig+id).subscribe((data) => {
       let response = data as Movie;
       this.movie = response;
     });
   }
+  
   toggleFav(){
     this.fav = !this.fav;
     if(this.fav){

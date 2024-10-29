@@ -1,5 +1,31 @@
-<div class="w-full min-h-[30vh] mt-16">
-    <div class="bg-[url(urlImage)]">
-        <h1>{{movie.title}}</h1>
+<style>
+    #bgImage {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2rem;
+        backdrop-filter: blur(10px);
+    }
+    .containerCarrousel{
+        min-height: 500px;
+    }
+</style>
+<div [class]="'w-full mt-16 containerCarrousel '+hide">
+    <div id="bgImage" [style]="'background-image: url('+urlImage+');'">
+        <div class="w-full h-full bg-gray-800 bg-opacity-80">
+            <a [routerLink]="'/details/'+movie.id" class="px-4 max-w-5xl mx-auto py-6 grid gap-2 justify-center content-center h-full">
+                <h1 *ngIf="movie.title" class="text-3xl font-bold">{{movie.title}}</h1>
+                <h1 *ngIf="!movie.title" class="text-3xl font-bold">Sin titulo</h1>
+                
+                <p *ngIf="movie.popularity" class="text-gray-400 text-lg">Votes: {{movie.vote_count}}</p>
+                <p class="text-lg">{{movie.overview}}</p>
+            </a>
+        </div>
     </div>
 </div>

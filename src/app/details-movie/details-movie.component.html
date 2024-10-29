@@ -3,11 +3,11 @@
     background-image: url({{movie.backdrop_path}});
 }
 </style>
-<div class="container min-h-screen mx-auto max-w-5xl">
+<div class="container min-h-screen mx-auto max-w-5xl pt-24">
     <div class=" bg-opacity-50 h-full w-full flex justify-center items-center">
-        <div class="max-w-6xl w-full flex gap-4">
-            <img [src]="'https://image.tmdb.org/t/p/w300'+movie.poster_path" alt="movie.title" class="w-64 h-96 rounded-md object-contain transform hover:scale-110 transition-all">
-            <div class="flex flex-col gap-4">
+        <div class="max-w-6xl w-full md:flex gap-4">
+            <img [src]="'https://image.tmdb.org/t/p/w300'+movie.poster_path" alt="movie.title" class="w-full md:w-64 h-96 rounded-md object-contain transform hover:scale-110 transition-all">
+            <div class=" py-2 flex flex-col gap-4">
                 <p *ngIf="movie.title" class="font-semibold text-4xl">{{movie.title}}</p>
                 <p *ngIf="!movie.title" class="font-semibold text-4xl">Sin titulo</p>
                 <p *ngIf="movie.release_date" class="text-gray-400">Fecha de estreno: {{movie.release_date}}</p>

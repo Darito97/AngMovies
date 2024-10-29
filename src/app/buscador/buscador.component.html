@@ -1,4 +1,4 @@
-<form (ngSubmit)="searchMovie()" [formGroup]="formSearch" class="flex gap-4 py-6 mx-auto max-w-md w-full">
+<form (ngSubmit)="searchMovie()" [formGroup]="formSearch" [class]="'flex gap-4 py-6 mx-auto max-w-md w-full '+hide">
     <input class="p-2 px-4 rounded-md w-full text-black" type="text" placeholder="Busca tu película" formControlName="search">
     <button class="bg-white text-black rounded-md shadow-sm font-semibold py-2 px-4" type="submit">Buscar</button>
 </form>

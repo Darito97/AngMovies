@@ -46,13 +46,15 @@ export class HomeComponent implements OnInit {
 
   onScrollDown(): void {
     this.page++;
-    this.configUrl = 'http://localhost:3000/movies/' + this.page;
     if(this.page <= 500){
-    this.http.get(this.configUrl).subscribe((data) => {
-      let response = data as Movies;
-      this.movies = this.movies.concat(response.results);
-    });
-  }
+      this.configUrl = 'http://localhost:3000/movies/' + this.page;
+      if(this.page <= 500){
+        this.http.get(this.configUrl).subscribe((data) => {
+          let response = data as Movies;
+          this.movies = this.movies.concat(response.results);
+        });                              
+      }
+    }
   }
   onScrollTop(): void {
     this.document.documentElement.scrollTop = 0;
