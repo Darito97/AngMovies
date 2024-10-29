@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FavoritesService } from './favorites.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,9 @@ export class AppComponent implements OnInit {
   title = 'movies';
   route = '';
 
-  constructor(private router: Router) {
+  constructor(private FavService: FavoritesService, private router: Router) {
     this.route = router.url;
+    FavService.getFavs();
   }
   ngOnInit(): void {
     const script = document.createElement('script');

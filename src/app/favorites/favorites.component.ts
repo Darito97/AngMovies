@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../home/Movies';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  favs = Array<Movie>();
+  configUrl = 'http://localhost:3000/favs';
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getFavs();
   }
+
+  getFavs(){
+    let sesion = localStorage.getItem('user');
+    if(sesion){
+      this.http.post(this.configUrl+"/getUserFavs", {user: sesion}).subscribe((data: any)=>{
+        this.favs = data
+        return data;
+      });
+    }
+  }
+
 
 }

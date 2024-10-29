@@ -9,18 +9,23 @@ import { FavoritesService } from '../favorites.service';
 export class MovieCardComponent implements OnInit {
 @Input() movie: any;
   fav = false;
-  constructor(private FavService: FavoritesService) { }
+  constructor(private FavService: FavoritesService) {
+  }
 
   ngOnInit(): void {
+    this.checkFav();
   }
 
   toggleFav(){
     this.fav = !this.fav;
     if(this.fav){
-      this.FavService.addFav(this.movie.id);
+      this.FavService.addFav(this.movie);
     }else{
-      this.FavService.removeFav(this.movie.id);
+      this.FavService.removeFav(this.movie);
     }
-    let favs = this.FavService.getFavs();
+  }
+
+  checkFav(){
+    this.fav = this.FavService.isFav(this.movie.id);
   }
 }
