@@ -2,6 +2,7 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Movies, Movie } from './Movies';
 import { DOCUMENT } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  configUrl = 'http://localhost:3000/movies/1';  
+  configUrl = environment.urlConfig+'/movies/1';  
   movies: Array<Movie> = [];
   page: number = 1;
   showButton: boolean = false;

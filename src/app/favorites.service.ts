@@ -2,12 +2,13 @@ import { Injectable, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from './home/Movies';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService implements OnInit {
-  urlConfig = 'http://localhost:3000/favs';
+  urlConfig = environment.urlConfig+'/favs';
   favs = Array<Movie>();
   sesion = false;
   user = "";

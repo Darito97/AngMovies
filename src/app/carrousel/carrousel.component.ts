@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../home/Movies';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-carrousel',
@@ -25,7 +26,7 @@ export class CarrouselComponent implements OnInit {
     "vote_average": 1,
     "vote_count": 0
   };
-  configUrl = 'http://localhost:3000/movies/random';
+  configUrl = environment.urlConfig+'/movies/random';
   urlImage = ""  
 
   constructor(private http: HttpClient) { 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../home/Movies';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-favorites',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class FavoritesComponent implements OnInit {
 
   favs = Array<Movie>();
-  configUrl = 'http://localhost:3000/favs';
+  configUrl = environment.urlConfig+'/favs';
 
   constructor(private http: HttpClient) { }
 

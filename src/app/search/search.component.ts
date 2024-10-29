@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { Movie, Movies } from '../home/Movies';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,7 @@ import { Movie, Movies } from '../home/Movies';
 })
 export class SearchComponent implements OnInit {
   searchValue: string = '';
-  configUrl = 'http://localhost:3000/movies/search';
+  configUrl = environment.urlConfig + '/movies/search';
   movies: Array<Movie> = [];
 
   constructor(private router: Router, private http: HttpClient) { 
