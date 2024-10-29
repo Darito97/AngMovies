@@ -18,8 +18,10 @@ export class AppComponent implements OnInit {
     if(this.route !== '/' && this.route !== '/search'){
       this.showComplements = false;
     }
+    FavService.getFavs();
   }
   ngOnInit(): void {
+    this.FavService.getFavs();
     const script = document.createElement('script');
     script.type="text/javascript";
     script.text = `
@@ -37,9 +39,11 @@ export class AppComponent implements OnInit {
       Clerk.mountUserButton(userButtonDiv, {
         afterSignOutUrl: '/'
       })
-      localStorage.setItem('user', Clerk.user.id)
-      
-
+        let user = localStorage.getItem('user')
+      if(!user){
+        localStorage.setItem('user', Clerk.user.id)
+        window.location.reload();
+      }
     }else{
       localStorage.removeItem('user')
     }
