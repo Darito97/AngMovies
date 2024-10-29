@@ -22,7 +22,19 @@ export class LoginComponent implements OnInit {
 
       const signInDiv = document.getElementById('sign-in')
 
-      Clerk.mountSignIn(signInDiv)
+      Clerk.mountSignIn(signInDiv, {
+        afterSignInUrl: '/',
+        afterSignUpUrl: '/',
+        afterSignOutUrl: '/',
+        appearance: {
+          variables: {
+            colorPrimary: '#000000'
+          },
+          elements: {
+            card: 'my-custom-card-class'
+          }
+        }
+      });
       }
     }
     window.addEventListener('load', async function () {
@@ -38,7 +50,9 @@ export class LoginComponent implements OnInit {
 
       const userButtonDiv = document.getElementById('user-button')
 
-      Clerk.mountUserButton(userButtonDiv)
+      Clerk.mountUserButton(userButtonDiv, {
+        afterSignOutUrl: '/'
+      })
       localStorage.setItem('user', Clerk.user.id)
       console.log(Clerk.user.id)
     } else {
@@ -49,7 +63,19 @@ export class LoginComponent implements OnInit {
 
       const signInDiv = document.getElementById('sign-in')
 
-      Clerk.mountSignIn(signInDiv)
+      Clerk.mountSignIn(signInDiv, {
+        afterSignInUrl: '/',
+        afterSignUpUrl: '/',
+        afterSignOutUrl: '/',
+        appearance: {
+          variables: {
+            colorPrimary: '#000000'
+          },
+          elements: {
+            card: 'my-custom-card-class'
+          }
+        }
+      });
     }
   })
     `

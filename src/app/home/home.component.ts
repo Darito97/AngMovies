@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Movies, Movie } from './Movies';
 import { DOCUMENT } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +17,11 @@ export class HomeComponent implements OnInit {
   showButton: boolean = false;
   waiting = true;
 
-  constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient) { 
-    this.getMovies();
+  constructor(@Inject(DOCUMENT) private document: Document, private http: HttpClient, private favoritesService: FavoritesService) { 
   }
 
   ngOnInit(): void {
+    this.getMovies();
   }
 
   getMovies(){

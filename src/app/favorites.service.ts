@@ -18,7 +18,7 @@ export class FavoritesService implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getFavs();
+    this.getFavs(()=>{});
   }
 
   addFav(fav: Movie): void{
@@ -45,14 +45,18 @@ export class FavoritesService implements OnInit {
     }
   }
 
-  getFavs(){
+  getFavs(otherFunction: any) {
     let sesion = localStorage.getItem('user');
     if(sesion){
       this.http.post(this.urlConfig+"/getUserFavs", {user: sesion}).subscribe((data: any)=>{
         this.favs = data
+        otherFunction();
         return data;
       });
     }
+  }
+  getFavsLength(): number{
+    return this.favs.length;
   }
 
   isFav(fav: number){

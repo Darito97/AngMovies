@@ -12,12 +12,12 @@ export class AppComponent implements OnInit {
   route = '';
   showComplements = true;
 
+
   constructor(private FavService: FavoritesService, private router: Router) {
     this.route = router.url;
     if(this.route !== '/' && this.route !== '/search'){
       this.showComplements = false;
     }
-    FavService.getFavs();
   }
   ngOnInit(): void {
     const script = document.createElement('script');
@@ -34,7 +34,9 @@ export class AppComponent implements OnInit {
 
       const userButtonDiv = document.getElementById('user-button')
 
-      Clerk.mountUserButton(userButtonDiv)
+      Clerk.mountUserButton(userButtonDiv, {
+        afterSignOutUrl: '/'
+      })
       localStorage.setItem('user', Clerk.user.id)
       
 
@@ -44,5 +46,6 @@ export class AppComponent implements OnInit {
   })
     `
     document.body.appendChild(script);
+    
   }
 }
