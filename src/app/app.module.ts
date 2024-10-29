@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { DetailsMovieComponent } from './details-movie/details-movie.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     MovieCardComponent,
     LoginComponent,
     FavoritesComponent,
+    DetailsMovieComponent,
   ],
   imports: [
     BrowserModule,

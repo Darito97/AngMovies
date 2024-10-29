@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { AuthGuard } from './auth.guard';
+import { DetailsMovieComponent } from './details-movie/details-movie.component';
 
 const routes: Routes = [{
   path: '', component: HomeComponent
@@ -16,6 +17,8 @@ const routes: Routes = [{
   path: 'login', component: LoginComponent
 }, {
   path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard]
+}, {
+  path: 'details/:id', component: DetailsMovieComponent
 }];
 
 @NgModule({

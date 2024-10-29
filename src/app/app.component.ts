@@ -33,10 +33,6 @@ export class AppComponent implements OnInit {
       Clerk.mountUserButton(userButtonDiv)
       localStorage.setItem('user', Clerk.user.id)
       
-      Clerk.user.on('signOut', () => {
-        localStorage.removeItem('user')
-        window.location.href = '/'
-      })
 
     }else{
       localStorage.removeItem('user')
