@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   onScrollDown(): void {
     this.page++;
     if(this.page <= 500){
-      this.configUrl = 'http://localhost:3000/movies/' + this.page;
+      this.configUrl = environment.urlConfig+'/movies/' + this.page;
       if(this.page <= 500){
         this.http.get(this.configUrl).subscribe((data) => {
           let response = data as Movies;
