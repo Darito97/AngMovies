@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getMovies();
+    setTimeout(()=>{this.getMovies();}, 1000);
   }
 
   getMovies(){
