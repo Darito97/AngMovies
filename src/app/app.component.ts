@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
         setTimeout(
           ()=>{
           window.location.reload();
-        }, 1000);
+        }, 1500);
       }
     }else{
       if(localStorage.getItem('user')){
