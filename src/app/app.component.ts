@@ -42,10 +42,16 @@ export class AppComponent implements OnInit {
         let user = localStorage.getItem('user')
       if(!user){
         localStorage.setItem('user', Clerk.user.id)
-        window.location.reload();
+        setTimeout(
+          ()=>{
+          window.location.reload();
+        }, 1000);
       }
     }else{
-      localStorage.removeItem('user')
+      if(localStorage.getItem('user')){
+        window.location.reload();
+        localStorage.removeItem('user')
+      }
     }
   })
     `
